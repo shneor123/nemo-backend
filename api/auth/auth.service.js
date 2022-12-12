@@ -17,9 +17,9 @@ async function login(username, password) {
     return user
 }
 
-  
 
-async function signup({username, password, fullname}) {
+
+async function signup({ username, password, fullname }) {
     // later might need imgUrl
     const saltRounds = 10
 
@@ -36,7 +36,7 @@ async function signup({username, password, fullname}) {
 
 
 function getLoginToken(user) {
-    return cryptr.encrypt(JSON.stringify(user))    
+    return cryptr.encrypt(JSON.stringify(user))
 }
 
 function validateToken(loginToken) {
@@ -45,8 +45,8 @@ function validateToken(loginToken) {
         const loggedinUser = JSON.parse(json)
         return loggedinUser
 
-    } catch(err) {
-        console.log('Invalid login token',err)
+    } catch (err) {
+        console.log('Invalid login token', err)
     }
     return null
 }
