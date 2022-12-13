@@ -6,9 +6,9 @@ const cookieParser = require('cookie-parser')
 const app = express()
 const http = require('http').createServer(app)
 
-app.use(express.static('public'))
-app.use(cookieParser())
 app.use(express.json({ limit: '50mb' }))
+app.use(cookieParser())
+app.use(express.static('public'))
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
@@ -41,8 +41,7 @@ app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-const logger = require('./services/logger.service')
-const port = process.env.PORT || 3030
-http.listen(port, () => {
-    logger.info('Server is running on port: ' + port)
+const PORT = process.env.PORT || 3030
+http.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`)
 })
