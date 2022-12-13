@@ -1,6 +1,7 @@
 module.exports = {
-  dbURL: 'mongodb://localhost:27017',
+  // dbURL: 'mongodb://localhost:27017',
+  dbURL:'mongodb+srv://shneor:AJ67wNx1Ny1lmxtC@cluster0.mlbgcvu.mongodb.net/?retryWrites=true&w=majority'
+  
   // dbURL:'mongodb+srv://omri:vgv02RlV26fL52KB@cluster0.tnv1v.mongodb.net/?retryWrites=true&w=majority'
-
   // 'dbURL': 'mongodb+srv://yonatanbz:SVp1ST6rQMtkdsBD@cluster0.tm2tn.mongodb.net/?retryWrites=true&w=majority',
 }
