@@ -5,7 +5,6 @@ const asyncLocalStorage = require('../../services/als.service')
 const utilService = require('../../services/util.service')
 
 const COLLECTION_NAME = 'board'
-// const COLLECTION_NAME = 'demo_data'
 
 async function query(filterBy = {}) {
     try {
@@ -15,7 +14,6 @@ async function query(filterBy = {}) {
         return boards 
     } catch (err) {
         logger.error('cannot find boards', err)
-        // console.log('c/annot find boards', err)
         throw err
     }
 
@@ -32,8 +30,6 @@ async function remove(boardId) {
         const criteria = { _id: ObjectId(boardId) }
         // if (!loggedinUser.isAdmin) criteria.byUserId = ObjectId(loggedinUser._id)
         const { deletedCount } = await collection.deleteOne(criteria)
-        // const { deletedCount } = await collection.deleteOne({ _id: ObjectId(boardId) })
-        // await collection.deleteOne({ _id: ObjectId(boardId) })
         // console.log('@@',deletedCount);
         return deletedCount
     } catch (err) {

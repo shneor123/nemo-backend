@@ -1,9 +1,6 @@
 const logger = require('../../services/logger.service')
-const userService = require('../user/user.service')
 const authService = require('../auth/auth.service')
-const socketService = require('../../services/socket.service')
 const boardService = require('./board.service')
-const utilService = require('../../services/util.service')
 
 async function getBoards(req, res) {
     try {
