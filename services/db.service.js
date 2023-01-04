@@ -6,7 +6,6 @@ module.exports = {
     getCollection
 }
 
-// Database Name
 const dbName = 'board_db'
 
 var dbConn = null
@@ -34,7 +33,3 @@ async function connect() {
         throw err
     }
 }
-
-
-
-

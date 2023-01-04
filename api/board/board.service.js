@@ -11,7 +11,7 @@ async function query(filterBy = {}) {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection(COLLECTION_NAME)
         const boards = await collection.find(criteria).toArray()
-        return boards 
+        return boards
     } catch (err) {
         logger.error('cannot find boards', err)
         throw err
@@ -24,7 +24,7 @@ async function remove(boardId) {
         // use after auth works
         // const store = asyncLocalStorage.getStore()
         // const { loggedinUser } = store
-        
+
         const collection = await dbService.getCollection(COLLECTION_NAME)
         // remove only if user is owner/admin
         const criteria = { _id: ObjectId(boardId) }
@@ -57,9 +57,9 @@ async function update(board) {
 async function add(board, loggedinUser) {
     const userObjectToAdd = {
         _id: ObjectId(loggedinUser._id),
-        username:loggedinUser.username,
-       fullname:loggedinUser.fullname,
-       imgUrl:loggedinUser.imgUrl
+        username: loggedinUser.username,
+        fullname: loggedinUser.fullname,
+        imgUrl: loggedinUser.imgUrl
     }
     try {
         const boardToAdd = {
@@ -67,12 +67,12 @@ async function add(board, loggedinUser) {
             // aboutUserId: ObjectId(review.aboutUserId),
             title: board.title,
             isStar: false,
-            createdBy:userObjectToAdd,
-            members:[userObjectToAdd],
+            createdBy: userObjectToAdd,
+            members: [userObjectToAdd],
             archivedAt: null,
             createdAt: Date.now(),
             // later will be either image or color
-            labelOpenState:false,
+            labelOpenState: false,
             style: board.style,
             labels: [
                 {
@@ -114,9 +114,9 @@ async function add(board, loggedinUser) {
 async function getBoardById(boardId) {
     try {
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        
+
         const board = collection.findOne({ _id: ObjectId(boardId) })
-      
+
         return board
     } catch (err) {
         logger.error(`while finding board ${boardId}`, err)

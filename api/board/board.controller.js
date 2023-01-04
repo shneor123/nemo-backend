@@ -32,7 +32,7 @@ async function addBoard(req, res) {
     loggedinUser = !req.cookies.loginToken ? {
             fullname:'guest',
             username:'guest',
-            imgUrl:'https://www.computerhope.com/jargon/g/guest-user.jpg'
+            imgUrl:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
         } : authService.validateToken(req.cookies.loginToken)
 
     try {
