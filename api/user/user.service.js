@@ -86,7 +86,7 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
-            imgUrl: '',
+            imgUrl: user.imgUrl,
             mentions: []
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)

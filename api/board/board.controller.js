@@ -13,7 +13,7 @@ async function getBoards(req, res) {
 }
 
 async function removeBoard(req, res) {
-    const {boardId} = req.params
+    const { boardId } = req.params
     try {
         const deletedCount = await boardService.remove(boardId)
         if (deletedCount === 1) {
@@ -27,18 +27,17 @@ async function removeBoard(req, res) {
     }
 }
 
-
 async function addBoard(req, res) {
     loggedinUser = !req.cookies.loginToken ? {
-            fullname:'guest',
-            username:'guest',
-            imgUrl:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
-        } : authService.validateToken(req.cookies.loginToken)
+        fullname: 'guest',
+        username: 'guest',
+        imgUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+    } : authService.validateToken(req.cookies.loginToken)
 
     try {
         var board = req.body
         boardFromDB = await boardService.add(board, loggedinUser)
-        
+
         // User info is saved also in the login-token, update it
         // const loginToken = authService.getLoginToken(loggedinUser)
         // res.cookie('loginToken', loginToken)
@@ -59,30 +58,28 @@ async function addBoard(req, res) {
     }
 }
 
-
 async function updateBoard(req, res) {
     try {
-      const board = req.body;
-      const updatedBoard = await boardService.update(board)
-      res.json(updatedBoard)
+        const board = req.body;
+        const updatedBoard = await boardService.update(board)
+        res.json(updatedBoard)
     } catch (err) {
-      logger.error('Failed to update board', err)
-      res.status(500).send({ err: 'Failed to update board' })
-  
+        logger.error('Failed to update board', err)
+        res.status(500).send({ err: 'Failed to update board' })
+
     }
-  }
+}
 
-
-  async function getBoardById(req, res) {
+async function getBoardById(req, res) {
     try {
-      const {boardId} = req.params
-      const board = await boardService.getBoardById(boardId)
-      res.json(board)
+        const { boardId } = req.params
+        const board = await boardService.getBoardById(boardId)
+        res.json(board)
     } catch (err) {
-      logger.error('Failed to get board', err)
-      res.status(500).send({ err: 'Failed to get board' })
+        logger.error('Failed to get board', err)
+        res.status(500).send({ err: 'Failed to get board' })
     }
-  }
+}
 
 
 module.exports = {
