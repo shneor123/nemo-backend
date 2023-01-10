@@ -2,7 +2,6 @@
 const ObjectId = require('mongodb').ObjectId
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const reviewService = require('../review/review.service')
 
 const COLLECTION_NAME = 'user'
 
@@ -28,13 +27,6 @@ async function getById(userId) {
         const collection = await dbService.getCollection(COLLECTION_NAME)
         const user = await collection.findOne({ _id: ObjectId(userId) })
         delete user.password
-
-        user.givenReviews = await reviewService.query({ byUserId: ObjectId(user._id) })
-        user.givenReviews = user.givenReviews.map(review => {
-            delete review.byUser
-            return review
-        })
-
         return user
     } catch (err) {
         logger.error(`while finding user ${userId}`, err)
@@ -82,16 +74,18 @@ async function update(user) {
 
 async function add(user) {
     try {
+        // peek only updatable fields!
         const userToAdd = {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
             imgUrl: user.imgUrl,
+            googleId:user.googleId,
             mentions: []
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
         await collection.insertOne(userToAdd)
-        console.log("@@@@", userToAdd);
+        console.log("@@@@ userToAdd", userToAdd);
         return userToAdd
     } catch (err) {
         logger.error('cannot insert user', err)
@@ -117,9 +111,6 @@ function _buildCriteria(filterBy) {
     }
     return criteria
 }
-
-
-
 
 
 
