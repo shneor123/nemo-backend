@@ -5084,7 +5084,6 @@
 
 
 
-/* 1 */
 {
     "title" : "Start up project",
     "isStar" : true,
@@ -7041,7 +7040,6 @@
     ]
 }
 
-/* 2 */
 {
     "_id" : ObjectId("63bc64963a905a31b1e86cb1"),
     "title" : "Next trip",
@@ -7166,7 +7164,6 @@
     ]
 }
 
-/* 3 */
 {
     "_id" : ObjectId("63bc651a3a905a31b1e86cb3"),
     "title" : "33",
@@ -7221,7 +7218,6 @@
     "activities" : []
 }
 
-/* 4 */
 {
     "_id" : ObjectId("63bc66c13a905a31b1e86cb5"),
     "title" : "My todos",
@@ -7276,7 +7272,6 @@
     "activities" : []
 }
 
-/* 5 */
 {
     "_id" : ObjectId("63bc66ca3a905a31b1e86cb7"),
     "title" : "Volunteering",
@@ -7331,7 +7326,6 @@
     "activities" : []
 }
 
-/* 6 */
 {
     "_id" : ObjectId("63bc66d33a905a31b1e86cb9"),
     "title" : "Workout plan",
@@ -7386,7 +7380,6 @@
     "activities" : []
 }
 
-/* 7 */
 {
     "_id" : ObjectId("63bc66dd3a905a31b1e86cbb"),
     "title" : "BBQ checklist",
@@ -7441,7 +7434,6 @@
     "activities" : []
 }
 
-/* 8 */
 {
     "_id" : ObjectId("63bc66e63a905a31b1e86cbd"),
     "title" : "Grammar rules",
@@ -7496,7 +7488,6 @@
     "activities" : []
 }
 
-/* 9 */
 {
     "_id" : ObjectId("63bc66ef3a905a31b1e86cbf"),
     "title" : "App ideas",
@@ -7551,7 +7542,6 @@
     "activities" : []
 }
 
-/* 10 */
 {
     "_id" : ObjectId("63bc66f73a905a31b1e86cc1"),
     "title" : "\"My dreams",
@@ -7606,7 +7596,6 @@
     "activities" : []
 }
 
-/* 11 */
 {
     "_id" : ObjectId("63bc66ff3a905a31b1e86cc3"),
     "title" : "Diet plan",
@@ -7661,7 +7650,6 @@
     "activities" : []
 }
 
-/* 12 */
 {
     "_id" : ObjectId("63bc67073a905a31b1e86cc5"),
     "title" : "Color blind life",
@@ -7716,7 +7704,6 @@
     "activities" : []
 }
 
-/* 13 */
 {
     "_id" : ObjectId("63bc67103a905a31b1e86cc7"),
     "title" : "Fun Ideas",
@@ -7771,7 +7758,6 @@
     "activities" : []
 }
 
-/* 14 */
 {
     "_id" : ObjectId("63bc671a3a905a31b1e86cc9"),
     "title" : "Dog treatments",
@@ -7826,7 +7812,6 @@
     "activities" : []
 }
 
-/* 15 */
 {
     "_id" : ObjectId("63bc67223a905a31b1e86ccb"),
     "title" : "Dog treatments",
@@ -7881,7 +7866,6 @@
     "activities" : []
 }
 
-/* 16 */
 {
     "_id" : ObjectId("63bc67313a905a31b1e86ccd"),
     "title" : "Home",
@@ -7936,7 +7920,6 @@
     "activities" : []
 }
 
-/* 17 */
 {
     "_id" : ObjectId("63bc67453a905a31b1e86ccf"),
     "title" : "new project",
@@ -7991,7 +7974,6 @@
     "activities" : []
 }
 
-/* 18 */
 {
     "_id" : ObjectId("63bc674e3a905a31b1e86cd1"),
     "title" : "Sprint3 Apsus",
@@ -8046,7 +8028,6 @@
     "activities" : []
 }
 
-/* 19 */
 {
     "_id" : ObjectId("63bc67553a905a31b1e86cd3"),
     "title" : "Shopping",
@@ -8100,3 +8081,70 @@
     "groups" : [],
     "activities" : []
 }
+
+
+
+
+
+
+/* 1 */
+{
+    "_id" : ObjectId("63b589ab72c50a8cf5025850"),
+    "username" : "yaron@gmail.com ",
+    "password" : "$2b$10$EwwjXTohQlN48dgndVUcteluq4Hi5p79BvyMLNdsYNFRikXOE19hq",
+    "fullname" : "yaron biton",
+    "imgUrl" : "https://www.coding-academy.org/images/team/yaron.jpg",
+    "mentions" : []
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("63b589bd72c50a8cf5025864"),
+    "username" : "assaf@gmail.com ",
+    "password" : "$2b$10$dhTZKptNJD0PkNlFJhLEkO88Xk0Dwai1B.8zrRtfjFaQsxsHlW/3i",
+    "fullname" : "assaf margalit",
+    "imgUrl" : "https://www.coding-academy.org/images/team/assaf.jpg",
+    "mentions" : []
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("63b589c672c50a8cf502586e"),
+    "username" : "yonatan@gmail.com ",
+    "password" : "$2b$10$7mg3CkINrjkmCfGnydOd5e/vSE1hyJzJKQjoVFjtWCoseRBlbGz.K",
+    "fullname" : "yonatan ben zeev",
+    "imgUrl" : "https://ca.slack-edge.com/T02SFLQBMS9-U031YP1HVR8-d5b126bae66f-512",
+    "mentions" : []
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("63b589d072c50a8cf5025876"),
+    "username" : "omri@gmail.com",
+    "password" : "$2b$10$GCzAD5F8xKDab8ycPdJBfevqw/EaMzk.sFx87Qt1moGCgOagbYWgG",
+    "fullname" : "omri luz",
+    "imgUrl" : "https://ca.slack-edge.com/T02SFLQBMS9-U035B1R39HC-005c32af7e0c-512",
+    "mentions" : []
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("629c8f054230d032b47d333f"),
+    "username" : "daniel@gmail.com",
+    "password" : "$2b$10$alMCb9TkPFKL0/lkHtsM/eJqSPLfcKrXLCDI2fUybRc96KaZzE9W6",
+    "fullname" : "daniel shaked",
+    "imgUrl" : "https://ca.slack-edge.com/T02SFLQBMS9-U034MMDA1E2-8384a11602c3-512",
+    "mentions" : []
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("63b589ee72c50a8cf502588d"),
+    "username" : "shneor@gmail.com",
+    "password" : "$2b$10$lPV1HtDli/Cbz0uopXo7ZenGT9TesZ.FxEeuMGJaJ.YIoCXvDxBjS",
+    "fullname" : "shneor rabinovitz",
+    "imgUrl" : "https://ca.slack-edge.com/T02SFLQBMS9-U02UFCKGU1W-80e82ae86ac6-512",
+    "mentions" : []
+}
+
+
