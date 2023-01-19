@@ -74,30 +74,30 @@ async function add(board, loggedinUser) {
             labelOpenState: false,
             style: board.style,
             labels: [
-                // {
-                //     "id": utilService.makeId(),// localID
-                //     "color": "#61bd4f"
-                // },
-                // {
-                //     "id": utilService.makeId(), // localID
-                //     "color": "#f2d600"
-                // },
-                // {
-                //     "id": utilService.makeId(),// localID
-                //     "color": "#ff9f1a",
-                // },
-                // {
-                //     "id": utilService.makeId(),// localID
-                //     "color": "#eb5a46"
-                // },
-                // {
-                //     "id": utilService.makeId(),// localID
-                //     "color": "#c377e0"
-                // },
-                // {
-                //     "id": utilService.makeId(),// localID
-                //     "color": "#0079bf",
-                // }
+                {
+                    "id": utilService.makeId(),// localID
+                    "color": "#61bd4f"
+                },
+                {
+                    "id": utilService.makeId(), // localID
+                    "color": "#f2d600"
+                },
+                {
+                    "id": utilService.makeId(),// localID
+                    "color": "#ff9f1a",
+                },
+                {
+                    "id": utilService.makeId(),// localID
+                    "color": "#eb5a46"
+                },
+                {
+                    "id": utilService.makeId(),// localID
+                    "color": "#c377e0"
+                },
+                {
+                    "id": utilService.makeId(),// localID
+                    "color": "#0079bf",
+                }
             ],
             groups: [],
             activities: []
