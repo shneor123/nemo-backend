@@ -4,8 +4,12 @@ const boardService = require('./board.service')
 
 async function getBoards(req, res) {
     try {
-        const boards = await boardService.query(req.query)
-        res.send(boards)
+        let filterBy = req.query
+
+        if (!filterBy.name || filterBy.name === 'undefined') filterBy.name = ''
+        if (!filterBy.sortBy || filterBy.sortBy === 'undefined') filterBy.sortBy = 'created'
+        const boards = await boardService.query(filterBy)
+        res.json(boards)
     } catch (err) {
         logger.error('Cannot get reviews', err)
         res.status(500).send({ err: 'Failed to get boards' })

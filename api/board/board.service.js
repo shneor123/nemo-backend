@@ -1,22 +1,29 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
-const asyncLocalStorage = require('../../services/als.service')
 const utilService = require('../../services/util.service')
 
 const COLLECTION_NAME = 'board'
 
-async function query(filterBy = {}) {
+async function query(filterBy) {
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        const boards = await collection.find(criteria).toArray()
+
+        let { sortBy } = filterBy
+        let sortType = 1
+        if (!sortBy || sortBy === 'created') {
+            sortBy = 'createdAt'
+            sortType = -1
+        }
+        let boards = await collection.find(criteria).sort({ [sortBy]: sortType }).toArray()
+
+        // const boards = await collection.find(criteria).toArray()
         return boards
     } catch (err) {
         logger.error('cannot find boards', err)
         throw err
     }
-
 }
 
 async function remove(boardId) {
@@ -37,7 +44,6 @@ async function remove(boardId) {
         throw err
     }
 }
-
 
 async function update(board) {
     try {
@@ -111,20 +117,16 @@ async function add(board, loggedinUser) {
     }
 }
 
-
 async function getBoardById(boardId) {
     try {
         const collection = await dbService.getCollection(COLLECTION_NAME)
-
         const board = collection.findOne({ _id: ObjectId(boardId) })
-
         return board
     } catch (err) {
         logger.error(`while finding board ${boardId}`, err)
         throw err
     }
 }
-
 
 async function save(board) {
     var savedBoard
@@ -141,6 +143,11 @@ async function save(board) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
+    
+    if (filterBy.name) {
+        criteria.name = { $regex: filterBy.name, $options: 'i' }
+    }
+
     if (filterBy.byUserId) criteria.byUserId = filterBy.byUserId
     return criteria
 }
