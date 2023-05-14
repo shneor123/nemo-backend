@@ -15,13 +15,12 @@ function setupSocketAPI(http) {
         })
 
         socket.on('join-board', boardId => {
-            console.log('joined board with id: ', boardId)
             if (socket.boardId === boardId) return;
             if (socket.boardId) {
                 socket.leave(socket.boardId);
             }
-            socket.join(boardId);
             socket.boardId = boardId;
+            socket.join(boardId);
         });
         socket.on('board-change', (updatedBoard) => {
             // excludedSocket.broadcast.to(room).emit(type, data)

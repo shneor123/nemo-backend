@@ -1,7 +1,4 @@
 const fs = require('fs')
-const asyncLocalStorage = require('./als.service')
-const utilService = require('./util.service')
-
 
 const logsDir = './logs'
 if (!fs.existsSync(logsDir)) {
@@ -19,25 +16,14 @@ function isError(e) {
 }
 
 function doLog(level, ...args) {
-
-    const strs = args.map(arg =>
-        (typeof arg === 'string' || isError(arg)) ? arg : JSON.stringify(arg)
-    )
-
+    const strs = args.map((arg) => (typeof arg === 'string' ? arg : JSON.stringify(arg)))
     var line = strs.join(' | ')
-    const store = asyncLocalStorage.getStore()
-    const userId = store?.loggedinUser?._id
-    const str = userId ? `(userId: ${userId})` : ''
-    line = `${getTime()} - ${level} - ${line} ${str}\n`
-    console.log(line)
-    fs.appendFile('./logs/backend.log', line, (err) =>{
-        if (err) console.log('FATAL: cannot write to log file')
-    })
+    line = `${getTime()} - ${level} - ${line}\n`
+    fs.appendFileSync('./logs/backend.log', line)
 }
 
 module.exports = {
     debug(...args) {
-        if (process.env.NODE_NEV === 'production') return
         doLog('DEBUG', ...args)
     },
     info(...args) {
@@ -48,5 +34,5 @@ module.exports = {
     },
     error(...args) {
         doLog('ERROR', ...args)
-    }
+    },
 }

@@ -3,9 +3,9 @@ const logger = require('../../services/logger.service')
 
 async function getUsers(req, res) {
     try {
-        const filterBy = {
-            txt: req.query?.txt || '',
-            minBalance: +req.query?.minBalance || 0
+        let filterBy = {
+            txt: req.query.txt || '',
+            minBalance: +req.query.minBalance || 0
         }
         const users = await userService.query(filterBy)
         res.send(users)
