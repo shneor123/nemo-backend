@@ -106,10 +106,13 @@ async function add(board, loggedinUser) {
                 }
             ],
             groups: [],
-            activities: []
+            activities: [],
+            lastViewedAt: null,
+
         }
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        await collection.insertOne(boardToAdd)
+        boardToAdd.lastViewedAt = Date.now();
+        await collection.insertOne(boardToAdd);
         return boardToAdd
     } catch (err) {
         logger.error('cannot insert review', err)
@@ -143,7 +146,7 @@ async function save(board) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
-    
+
     if (filterBy.name) {
         criteria.name = { $regex: filterBy.name, $options: 'i' }
     }
