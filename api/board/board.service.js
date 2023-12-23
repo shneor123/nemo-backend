@@ -72,6 +72,7 @@ async function add(board, loggedinUser) {
             // aboutUserId: ObjectId(review.aboutUserId),
             title: board.title,
             isStar: false,
+            isPublic: false,
             createdBy: userObjectToAdd,
             members: [userObjectToAdd],
             archivedAt: null,
