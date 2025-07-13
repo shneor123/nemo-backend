@@ -5,6 +5,7 @@ const config = require('../config')
 module.exports = {
     getCollection
 }
+const dbURL = process.env.MONGO_URL || config.dbURL
 
 const dbName = 'board_db'
 
@@ -20,6 +21,7 @@ async function getCollection(collectionName) {
         throw err
     }
 }
+
 
 async function connect() {
     if (dbConn) return dbConn
