@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5e4737d6.css",
-    "main.js": "/static/js/main.59e1cb90.js",
+    "main.js": "/static/js/main.26897a76.js",
     "static/media/updatedhero-mobile-final.mp4": "/static/media/updatedhero-mobile-final.0f94c024e16801a5786d.mp4",
     "static/media/segoeuib.ttf": "/static/media/segoeuib.951ff44e9006b0fe377e.ttf",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.b1a653db79258eeccc5d.ttf",
@@ -31,10 +31,10 @@
     "static/media/loader.svg": "/static/media/loader.24976c46bbf8be9db6632d95684435f7.svg",
     "index.html": "/index.html",
     "main.5e4737d6.css.map": "/static/css/main.5e4737d6.css.map",
-    "main.59e1cb90.js.map": "/static/js/main.59e1cb90.js.map"
+    "main.26897a76.js.map": "/static/js/main.26897a76.js.map"
   },
   "entrypoints": [
     "static/css/main.5e4737d6.css",
-    "static/js/main.59e1cb90.js"
+    "static/js/main.26897a76.js"
   ]
 }
