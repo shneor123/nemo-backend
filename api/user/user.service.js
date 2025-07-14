@@ -13,7 +13,7 @@ async function query(filterBy = {}) {
         let users = await collection.find(criteria).toArray()
         users = users.map(user => {
             delete user.password
-            user.createdAt = ObjectId(user._id).getTimestamp()
+            user.createdAt = new ObjectId(user._id).getTimestamp()
             return user
         })
         return users
@@ -27,7 +27,7 @@ async function query(filterBy = {}) {
 async function getById(userId) {
     try {
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        const user = await collection.findOne({ _id: ObjectId(userId) })
+        const user = await collection.findOne({ _id: new ObjectId(userId) })
         delete user.password
         return user
     } catch (err) {
@@ -50,7 +50,7 @@ async function getByUsername(username) {
 async function remove(userId) {
     try {
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        await collection.deleteOne({ '_id': ObjectId(userId) })
+        await collection.deleteOne({ '_id': new ObjectId(userId) })
     } catch (err) {
         logger.error(`cannot remove user ${userId}`, err)
         throw err
@@ -61,7 +61,7 @@ async function update(user) {
     try {
         const lastModified = Date.now()
         const updatedUser = {
-            _id: ObjectId(user._id), // needed for the returnd obj
+            _id: new ObjectId(user._id), // needed for the returnd obj
             username: user.username,
             fullname: user.fullname,
             lastModified

@@ -10,11 +10,11 @@ async function query(filterBy) {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection(COLLECTION_NAME)
 
-                console.log('📋 filterBy:', filterBy)
+        console.log('📋 filterBy:', filterBy)
         console.log('📋 criteria:', criteria)
         console.log('📋 collection:', collection.collectionName)
 
-        
+
         let { sortBy } = filterBy
         let sortType = 1
         if (!sortBy || sortBy === 'created') {
@@ -39,8 +39,8 @@ async function remove(boardId) {
 
         const collection = await dbService.getCollection(COLLECTION_NAME)
         // remove only if user is owner/admin
-        const criteria = { _id: ObjectId(boardId) }
-        // if (!loggedinUser.isAdmin) criteria.byUserId = ObjectId(loggedinUser._id)
+        const criteria = { _id: new ObjectId(boardId) }
+        // if (!loggedinUser.isAdmin) criteria.byUserId = new ObjectId(loggedinUser._id)
         const { deletedCount } = await collection.deleteOne(criteria)
         // console.log('@@',deletedCount);
         return deletedCount
@@ -52,7 +52,7 @@ async function remove(boardId) {
 
 async function update(board) {
     try {
-        var id = ObjectId(board._id)
+        var id = new ObjectId(board._id)
         delete board._id
         const collection = await dbService.getCollection(COLLECTION_NAME)
         await collection.updateOne({ _id: id }, { $set: { ...board } })
@@ -66,15 +66,15 @@ async function update(board) {
 
 async function add(board, loggedinUser) {
     const userObjectToAdd = {
-        _id: ObjectId(loggedinUser._id),
+        _id: new ObjectId(loggedinUser._id),
         username: loggedinUser.username,
         fullname: loggedinUser.fullname,
         imgUrl: loggedinUser.imgUrl
     }
     try {
         const boardToAdd = {
-            // byUserId: ObjectId(review.byUserId),
-            // aboutUserId: ObjectId(review.aboutUserId),
+            // byUserId:new ObjectId(review.byUserId),
+            // aboutUserId:new ObjectId(review.aboutUserId),
             title: board.title,
             isStar: false,
             isPublic: false,
@@ -129,7 +129,7 @@ async function add(board, loggedinUser) {
 async function getBoardById(boardId) {
     try {
         const collection = await dbService.getCollection(COLLECTION_NAME)
-        const board = collection.findOne({ _id: ObjectId(boardId) })
+        const board = collection.findOne({ _id: new ObjectId(boardId) })
         return board
     } catch (err) {
         logger.error(`while finding board ${boardId}`, err)
