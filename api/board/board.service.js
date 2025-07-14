@@ -10,6 +10,11 @@ async function query(filterBy) {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection(COLLECTION_NAME)
 
+                console.log('📋 filterBy:', filterBy)
+        console.log('📋 criteria:', criteria)
+        console.log('📋 collection:', collection.collectionName)
+
+        
         let { sortBy } = filterBy
         let sortType = 1
         if (!sortBy || sortBy === 'created') {
