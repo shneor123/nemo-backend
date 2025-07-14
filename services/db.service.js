@@ -10,6 +10,12 @@ let dbConn = null
 console.log('Connecting to DB with URL:', dbURL);
 
 async function getCollection(collectionName) {
+
+        console.log('DB_URL:', process.env.DB_URL);
+    console.log('Config dbURL:', config.dbURL);
+    console.log('Final dbURL:', dbURL);
+
+    
     try {
         const db = await connect();
         console.log('Fetching collection:', collectionName);
