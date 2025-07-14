@@ -8,7 +8,10 @@ const COLLECTION_NAME = 'board'
 async function query(filterBy) {
     try {
         const criteria = _buildCriteria(filterBy)
-        const collection = await dbService.getCollection(COLLECTION_NAME)
+        console.log('🔍 criteria:', criteria)
+const collection = await dbService.getCollection(COLLECTION_NAME)
+console.log('✅ collection found:', collection.collectionName)
+
 
         console.log('📋 filterBy:', filterBy)
         console.log('📋 criteria:', criteria)
