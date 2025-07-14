@@ -3,7 +3,7 @@ const logger = require('../services/logger.service');
 const config = require('../config');
 
 
-const dbURL = process.env.MONGO_URL || config.dbURL;
+const dbURL = process.env.DB_URL || config.dbURL;
 const dbName = 'board_db'
 let dbConn = null
 
