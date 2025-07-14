@@ -3,7 +3,7 @@ const logger = require('../services/logger.service');
 const config = require('../config');
 
 
-const dbURL = process.env.DB_URL || config.dbURL;
+const dbURL = process.env.DB_URL || 'mongodb+srv://shneor333:Y0bfbbrNir35vTi4@nemonew.djdu6sc.mongodb.net/?retryWrites=true&w=majority&ssl=true';
 const dbName = 'board_db'
 let dbConn = null
 
@@ -41,10 +41,21 @@ async function connect() {
     try {
         console.log('🔄 Creating new MongoDB connection...');
         console.log('🔄 Connection URL:', dbURL);
-        const client = new MongoClient(dbURL);
+        
+        const client = new MongoClient(dbURL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            ssl: true,
+            tlsAllowInvalidCertificates: true, // רק לבדיקה
+            tlsAllowInvalidHostnames: true,    // רק לבדיקה
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
+        });
+        
         console.log('🔄 Connecting to client...');
         await client.connect();
         console.log('✅ Client connected successfully');
+        
         console.log('🔄 Getting database:', dbName);
         const db = client.db(dbName);
         console.log('✅ Database obtained successfully');
