@@ -3,7 +3,7 @@ const logger = require('../services/logger.service');
 const config = require('../config');
 
 const dbURL =
-  'mongodb+srv://shneor333:Y0bfbbrNir35vTi4@nemonew.djdu6sc.mongodb.net/board_db?retryWrites=true&w=majority';
+  "mongodb+srv://shneor333:Y0bfbbrNir35vTi4@nemonew.djdu6sc.mongodb.net/";
 const dbName = 'board_db';
 
 let dbConn = null;
