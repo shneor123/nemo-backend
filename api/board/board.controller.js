@@ -4,6 +4,8 @@ const boardService = require('./board.service')
 
 async function getBoards(req, res) {
     try {
+        console.log('Getting boards' , req.query);
+        
         let filterBy = req.query
 
         if (!filterBy.name || filterBy.name === 'undefined') filterBy.name = ''
