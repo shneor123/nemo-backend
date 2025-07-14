@@ -7,15 +7,13 @@ const COLLECTION_NAME = 'board'
 
 async function query(filterBy) {
     try {
-        const criteria = _buildCriteria(filterBy)
+                const criteria = _buildCriteria(filterBy)
         console.log('🔍 criteria:', criteria)
-const collection = await dbService.getCollection(COLLECTION_NAME)
-console.log('✅ collection found:', collection.collectionName)
+        
+        console.log('🔄 Getting collection...');
+        const collection = await dbService.getCollection(COLLECTION_NAME)
+        console.log('✅ collection found:', collection.collectionName)
 
-
-        console.log('📋 filterBy:', filterBy)
-        console.log('📋 criteria:', criteria)
-        console.log('📋 collection:', collection.collectionName)
 
 
         let { sortBy } = filterBy
@@ -29,6 +27,7 @@ console.log('✅ collection found:', collection.collectionName)
         // const boards = await collection.find(criteria).toArray()
         return boards
     } catch (err) {
+                console.error('❌ Error in query function:', err);
         logger.error('cannot find boards', err)
         throw err
     }
